@@ -1,16 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="math130.gui.HelloController">
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="18.0" style="-fx-background-color: #e3f2fd; -fx-padding: 25; -fx-border-color: red; -fx-border-radius: 12; -fx-background-radius: 12; -fx-border-width: 0; -fx-border-style: none;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="math130.gui.HelloController">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+    <Label fx:id="welcomeText" alignment="CENTER" prefHeight="40.0" style="-fx-font-weight: bold;" text="Rock Paper Scissors">
+      <font>
+         <Font name="Cambria" size="24.0" />
+      </font></Label>
+   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+      <children>
+         <ImageView fitHeight="44.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@player.png" />
+            </image>
+         </ImageView>
+         <Label fx:id="playerScoreLabel" alignment="CENTER" contentDisplay="CENTER" style="-fx-background-color: #dcfce7; -fx-background-radius: 10; -fx-padding: 6, 10; -fx-text-fill: #166534; -fx-font-weight: bold;" text="You: 0" />
+         <Label fx:id="cpuScoreLabel" style="-fx-background-color: #ede9fe; -fx-background-radius: 10; -fx-padding: 6, 10; -fx-text-fill: #5b21b6; -fx-font-weight: bold;" text="Computer: 0" />
+         <ImageView fitHeight="42.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@robot.jpg" />
+            </image>
+         </ImageView>
+         <Label fx:id="tiesLabel" style="-fx-background-color: #ffedd5;" text="Ties: 0" />
+      </children>
+   </HBox>
+   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="320.0" spacing="15.0" style="-fx-padding: 10;">
+      <children>
+          <Button alignment="CENTER" lineSpacing="15.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2196f2; -fx-text-fill: white; -fx-background-radius: 8;" text="Rock">
+            <graphic>
+               <ImageView fitHeight="24.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@rock.png" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
+         <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2196f3; -fx-text-fill: white; -fx-background-radius: 8;" text="Paper">
+            <graphic>
+               <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@paper.png" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
+         <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2196f3; -fx-text-fill: white; -fx-background-radius: 8;" text="Scissors">
+            <graphic>
+               <ImageView fitHeight="72.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@scissors.png" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
+      </children>
+   </HBox>
+   <VBox alignment="CENTER" prefHeight="110.0" prefWidth="260.0" spacing="12.0" style="-fx-background-color: #ffcc80; -fx-background-radius: 12; -fx-padding: 10;">
+      <children>
+         <Label fx:id="userChoiceLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-text-fill: #334155; -fx-background-color: #dcfce7; -fx-background-radius: 10; -fx-font-size: 14; -fx-padding: 10, 15; -fx-font-weight: bold;" text="Your choice: -">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="cpuChoiceLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-text-fill: #5b21b6; -fx-background-color: #ede9fe; -fx-padding: 10, 15; -fx-font-size: 14; -fx-font-weight: bold;" text="Computer choice: -">
+            <font>
+               <Font size="16.0" />
+            </font>
+         </Label>
+         <Label fx:id="resultLabel" alignment="CENTER" contentDisplay="CENTER" lineSpacing="12.0" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-background-color: #ff7043; -fx-padding: 8; -fx-background-radius: 12; -fx-font-size: 16px;" text="Result: Start the game">
+            <font>
+               <Font size="16.0" />
+            </font>
+         </Label>
+      </children>
+   </VBox>
+   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="220.0" spacing="15.0">
+      <children>
+         <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 12; -fx-padding: 10 20 10 20; -fx-font-weight: bold;" text="Play Again" />
+         <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-background-radius: 12; -fx-padding: 10 20 10 20; -fx-font-weight: bold;" text="Reset" />
+      </children>
+   </HBox>
+   <effect>
+      <DropShadow height="29.78" offsetY="4.0" radius="15.120000000000001" width="32.7">
+         <color>
+            <Color opacity="0.9900000095367432" />
+         </color>
+      </DropShadow>
+   </effect>
 </VBox>
